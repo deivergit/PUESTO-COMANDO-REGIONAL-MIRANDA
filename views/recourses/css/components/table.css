@@ -1,0 +1,31 @@
+table {
+    table-layout: fixed;
+    width: 95%;
+    height: auto;
+    margin: 0 auto 0 auto   ;
+    border-collapse: collapse;
+    font-family: var(--main-font-family);
+    border: 2px solid rgb(248, 243, 244);
+    position: relative;
+    border-radius: 3px;
+    background-color: rgb(255, 255, 255);
+    overflow: hidden;
+    background: rgb(243,245,248);
+
+}
+
+thead {
+    width: 100%;
+    height: auto;
+    background: rgb(0, 97, 145);
+    color: rgb(255, 255, 255);
+    font-size: 0.90em;
+}
+
+tbody tr:nth-child(even) {
+    background: rgb(225, 238, 244);
+}
+
+tbody tr {
+    text-align: center;
+}

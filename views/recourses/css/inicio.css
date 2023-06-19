@@ -1,0 +1,97 @@
+.container-home {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    padding: 0 20px 20px 20px;
+    justify-content: space-between;
+}
+
+.indication-card {
+    display: flex;
+    width: 32%;
+    height: 140px;
+    border-radius: 7px;
+    box-shadow: 5px 5px 10px 15px rgb(238, 243, 249);
+    z-index: 9;
+    position: relative;
+    border-radius: 5px;
+    overflow: hidden;
+    padding: 0 2% 0 2%;
+}
+
+.indication-card--invisible {
+    display: flex;
+    width: 32%;
+    height: 140px;
+}
+
+.indication-card--invisible , .indication-card {
+    margin-top: 20px;
+}
+
+.indication-card__icon {
+    width: 62px;
+    height: auto;
+}
+
+.indication-card__box-title {
+    display: flex;
+    width: 75%;
+    height: auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items:flex-end;
+    color: rgb(255, 255, 255);
+    white-space:nowrap;
+}
+
+.indication-card__title {
+    font-size: 1em;
+    margin-top: 7px;
+    color: rgb(255, 255, 255);
+    font-weight: 400;
+}
+
+.indication-card__indication {
+    font-size: 2em;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+}
+
+.indication-card:first-child{
+    background-color: rgb(255, 156, 56);
+}
+
+.indication-card:nth-child(2){
+    background: rgb(255, 71, 71);
+}
+
+.indication-card:nth-child(3){
+    background: rgb(255, 238, 0);
+}
+
+.indication-card:nth-child(4){
+    background: rgb(31, 196, 245);
+}
+
+.indication-card:nth-child(5){
+    background: rgb(12, 169, 144);
+}
+
+@media (max-width: 1000px) {
+    .indication-card {
+        width: 48.50%;
+    }
+}
+
+@media (max-width: 750px) {
+    .indication-card {
+        width: 100%;
+    }
+
+    .indication-card--invisible {
+        display: none;
+    }
+}

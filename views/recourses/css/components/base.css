@@ -1,0 +1,119 @@
+/* GENERAL STYLES */
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html,body {
+    height: 100%;
+    background: rgb(243,245,248);
+    min-height: 100vh;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+
+li {
+    list-style-type: none;
+}
+
+.title {
+    display: flex;
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    color: rgb(39, 44, 51);
+    font-size: 1.50em;
+    font-weight: 800;
+    margin-top: 60px;
+}
+
+/* VARIABLES */
+
+:root {
+    --formulario-color-primario: rgb(54, 54, 54);
+    --primary-color-button: rgb(31, 196, 245);
+    --secondary-color-button: rgb(20,20,20);
+    --red-color-button: rgb(20,20,20);
+    --green-color-button: rgb(20,20,20);
+    --main-font-family: 'Roboto', sans-serif;
+    --inpu-main-shadow: rgb(231, 231, 231);
+}
+
+/* LAYOUD */
+
+.main-container {
+    display: flex;
+    width: 100%;
+    min-height: 100%;
+    position: relative;
+}
+
+.container {
+    display: inline-flex;
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    position: relative;
+}
+
+/*----------BAR-LEGEND----------*/
+
+.bar-legend {
+    display: inline-flex;
+    width: 100%;
+    height: 50px;
+    justify-content: left;
+    align-items: center;
+    padding: 20px 0 0 20px;
+    font-family: var(--main-font-family);
+    font-size: 0.90em;
+    font-weight: 300;
+}
+
+.bar-legend .container-card  {
+    display: flex;
+    width: auto;
+    height: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.bar-legend .box-icon  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(31, 196, 245);
+    padding: 6px 6px;
+    border-radius: 5px;
+} 
+
+.bar-legend .box-description  {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.bar-legend__item {
+    margin-left: 8px;
+}
+
+.bar-legend__item:first-child {
+    color: rgb(50, 50, 50);
+    font-weight: 400;
+    margin-bottom: 1px;
+    font-size: 1.10em;
+}
+
+.bar-legend__item:nth-child(2) {
+    color: rgb(100, 100, 100);
+}
+
+.bar-legend__item:nth-child(3) {
+    color: rgb(100, 100, 100);
+}

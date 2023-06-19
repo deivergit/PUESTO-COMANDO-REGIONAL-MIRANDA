@@ -1,0 +1,247 @@
+.modal {
+    display: none; /* Por defecto, estará oculto */
+    position: fixed; 
+    z-index: 11;
+    background-color: rgba(20, 20, 20, 0.90);
+    width: 100%;
+    height: 100%;
+    z-index: 11;
+    padding: 20px 20px 20px 20px;
+    overflow-y: scroll;
+}
+
+.box {
+    display: flex;
+    width: 100%;
+    height: auto;
+    justify-content: space-between;
+}
+
+.modal form {
+    border-radius: 10px;
+}
+
+.icon_cerrar {
+    display: flex;
+    width: 50px;
+    height: auto;
+}
+
+.form {
+    display: flex;
+    width: 80%;
+    height: auto;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background: rgb(243,245,248);
+    margin: auto;
+    padding: 30px 30px;
+}
+
+.form .title {
+    display: flex;
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    color: rgb(39, 44, 51);
+    font-size: 1.50em;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 800;
+    margin-top: 60px;
+}
+
+.form .subtitle {
+    display: flex;
+    width: 100%;
+    height: auto;
+    justify-content: flex-start;
+    font-size: 1em;
+    color: rgb(39, 44, 51);
+    padding: 20px 0 10px 0;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+}
+
+.label {
+    color: rgb(80, 80, 80);
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.80em;
+    font-weight: 400;
+    padding-bottom: 3px;
+    padding-top: 10px;
+}
+
+.asterisk {
+    color: rgb(227, 25, 25);
+}
+
+.textarea {
+    padding: 10px;
+}
+
+/*----------INPUT----------*/
+
+.input {
+    display: flex;
+    outline: none;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.85em;
+}
+
+.input--big,
+.input--regular,
+.input--small {
+    border: 1px solid rgb(240, 240, 240);
+    border-radius: 5px;
+}
+
+.input--big:focus,
+.input--regular:focus,
+.input--small:focus {
+    box-shadow: 2px 1px 5px 1px rgb(231, 231, 231);
+    transition: 0.50ms;
+}
+
+.input--big {
+    width: 100%;
+    height: 100px;
+}
+
+option , .input--regular {
+    width: 100%;
+    height: 35px;
+    padding-left: 5px;
+}
+
+.input--small {
+    width: 50px;
+    height: 35px;
+    padding-left: 5px;
+}
+
+/*----------BOX-INPUT----------*/
+
+.box-input {
+    display: flex;
+    flex-direction: column;
+}
+
+.box-input--big {
+    width: 100%;
+    height: auto;
+}
+
+.box-input--regular {
+    width: 300px;
+    height: auto;
+}
+
+/*----------BOX-BUTTON----------*/
+
+.box-button {
+    display: flex;
+    width: 100%;
+    height: auto;
+}
+
+.box-button__right {
+    justify-content: left;
+}
+
+.box-button__center {
+    justify-content: center;
+    padding: 30px 0;
+}
+
+/*----------BUTTON----------*/
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+    cursor: pointer;
+    border: none;
+    border-radius: 30px;
+}
+
+.button img {
+    width: 20px;
+    height: auto;
+}
+
+.button--add,
+.button--remove,
+.button--save,
+.button--cancel {
+    padding: 8px 14px 8px 14px;
+    border-radius: 30px;
+    font-size: 0.90em;
+}
+
+.button--cancel,
+.button--save,
+.button--add,
+.button--remove {
+    color: rgb(255, 255, 255);
+}
+
+.button--cancel,
+.button--remove {
+    background: rgb(253, 89, 81);
+}
+
+.button--save,
+.button--add {
+    background: rgb(12, 169, 144);
+}
+
+.button--add {
+    margin: 10px 30px 10px 0;
+}
+
+.button--add:hover {
+    background: rgb(11, 163, 138);
+    transition: 0.50s;
+}
+
+.button--remove {
+    font-family: 'Roboto', sans-serif;
+    margin: 10px 0 10px 0;
+}
+
+.remove--button:hover {
+    background: rgb(253, 72, 62);
+    transition: 0.70s;
+}
+
+.button--save {
+    background: rgb(11, 163, 138);
+    margin-right: 30px;
+}
+
+.button--cancel {
+    background: rgb(253, 89, 81);
+    margin-left: 30px;
+}
+
+.button-modal {
+    width: 50px;
+    height: 30px;
+}
+
+.cerrar {
+    cursor: pointer;
+}
+/*----------RESPONSIVE----------*/
+
+
+@media only screen and (max-width:1200px) {}
+
+@media only screen and (max-width:1024px) {}
+
+@media only screen and (max-width:768px) {}
+
+@media only screen and (max-width:480px) {}
+
+@media only screen and (max-width:230px) {}
