@@ -1,8 +1,8 @@
 :root {
 
     /* COLORS */
-    --formulario-color-primario: rgb(54, 54, 54);
-    --boton-color-primario: rgb(31, 196, 245);
+    --primary-color: rgb(54, 54, 54);
+    --primary-color: rgb(31, 196, 245);
     
     /* FONTS */
     --main-font: ;
@@ -14,9 +14,11 @@
     box-sizing: border-box;
 }
 
-.form__icon--right {
-    cursor: pointer;
+body {
+    background-color: rgb(255, 255, 255);
 }
+
+
 
 .icon-in {
     display: flex;
@@ -32,35 +34,41 @@
     width: 100%;
     height: 100%;
     display: grid;
-    grid-template-columns: repeat(3,auto);
+    grid-template-columns: repeat(2,auto);
     grid-template-rows: auto;
     grid-column-gap: 0;
     position: absolute;
+    font-family: 'Roboto', sans-serif;
+}
+
+.box {
+    display: flex;
+    height: 100%; 
 }
 
 /* LEFT CARD */
 
-.left-card {
+.box--login-form {
     display: flex;
-    width: 500px;
-    height: 100%;
-    background-color: rgb(255, 255, 255);
+    align-items: center;
+    justify-content: center;
     flex-direction: column;
-    font-family: 'Roboto', sans-serif;
+    width: 500px;
+    flex-direction: column;
     grid-column: 1/2;
     grid-row: 1/2;
 }
 
-.left-card__box {
-    display: flex;
-    width: 100%;
+.login-form {
+    display: inline-flex;
+    width: 60%;
     height: 100%;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
 }
 
-.left-card__title {
+.login-form__title {
     height: auto;
     color: var(--formulario-color-primario);
     margin-bottom: 30px;
@@ -68,26 +76,28 @@
     text-align: center;
 }
 
-.form__icon--right {
-    display: flex;
-    position: absolute;
+.login-form__icon--right {
+    cursor: pointer;
+}
+
+.login-form__icon--right {
     margin-left: 260px;
 }
 
-.form {
-    display: inline-flex;
-    width: 60%;
-    height: auto;
-    flex-direction: column;
-    align-items: center;
-    font-family: 'Roboto', sans-serif;
+.login-form__icon--left {
+    margin-left: 15px;
 }
 
-.form__items:nth-child(2) {
+.login-form__icon {
+    display: flex;
+    position: absolute;
+}
+
+.login-form__items:nth-child(2) {
     margin: 20px 0;
 }
 
-.form__items {
+.login-form__items {
     width: 100%;
     height: auto;
     display: flex;
@@ -97,7 +107,7 @@
     justify-content: space-between;
 }
 
-.form__input {
+.login-form__input {
     display: flex;
     width: 100%;
     height: 45px;
@@ -111,16 +121,11 @@
     font-weight: 400;
 }
 
-.form__input::placeholder {
+.login-form__input::placeholder {
     color: rgb(150, 150, 150);
 }
 
-.form__icon {
-    position: absolute;
-    margin-left: 15px;
-}
-
-.button {
+.login-form__button {
     display: flex;
     width: 100%;
     height: 45px;
@@ -213,7 +218,7 @@
     grid-column: 2/3;
     grid-row: 1/2;
     position: relative;
-    background-image: url("../images/miranda-park.jpg");
+    background-image: url("../images/miranda-park.webp");
     background-repeat: no-repeat;
     background-position: 10px;
     background-size: cover;
@@ -224,8 +229,11 @@
 
 @keyframes fondo-anim{
     0%{background-size: 100%;}
-    50%{background-size: 110%;}  /*por defecto*/
-    100%{background-size: 130%;}
+    50%{background-size: 110%;}  
+    50%{background-size: 120%;}
+    50%{background-position: 50px;}
+    50%{background-size: 130%;}    
+    100%{background-size: 140%;}
   }
 
 .right-card::before {

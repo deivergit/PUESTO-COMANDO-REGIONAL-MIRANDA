@@ -28,7 +28,11 @@ $item_two = "Lista de usuarios / Agregar usuario";
             ?>
             <table>
                 <thead></thead>
-                <tbody></tbody>
+                <tbody>
+                    <?php
+                    
+                    ?>
+                </tbody>
                 <tfoot></tfoot>
             </table>
         </div>
