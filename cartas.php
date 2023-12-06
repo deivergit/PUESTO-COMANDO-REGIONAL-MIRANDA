@@ -1,4 +1,23 @@
 <?php
+include('./config/database.php');
+session_start();
+
+$id = $_SESSION['id'];
+$consulta2 = mysqli_query($conn, "SELECT * FROM usuarios WHERE correo_electronico = '$id';");
+$valores = mysqli_fetch_array($consulta2);
+$primer_nombre = $valores['primer_nombre'];
+$primer_apellido = $valores['primer_apellido'];
+$foto_de_perfil=$valores['foto_de_perfil'];
+$tipo_de_usuario = $valores['tipo_de_usuario'];
+
+$boton_1 = "boton_desactivado";
+$boton_2 = "boton_active";
+$boton_3 = "boton_desactivado";
+$boton_4 = "boton_desactivado";
+
+# SERVER TIME
+date_default_timezone_set("America/Caracas");
+$DateAndTime = date('d-m-Y h:i:s a', time());  
 
 # PAGE
 $page_title = "Cartas";
@@ -7,12 +26,19 @@ $page_title = "Cartas";
 $item_one = "Cartas";
 $item_two = "Lista de cartas / Registrar carta";
 
+#models
+$busqueda = "SELECT * FROM cartas
+INNER JOIN documentos_de_identidad ON cartas.id_carta = documentos_de_identidad.id_documento_de_identidad
+inner join direcciones_de_habitacion ON cartas.id_carta = direcciones_de_habitacion.id_direccion_de_habitacion
+";
+$query1 = $conn->query($busqueda);
 ?>
 <!DOCTYPE html>
 <html lang="es">
 <?php include ("./views/components/head.php"); ?>
 <link rel="stylesheet" href="./views/recourses/css/inicio.css">
 <link rel="stylesheet" href="./views/recourses/css/components/form.css">
+<link rel="stylesheet" href="./views/recourses/css/components/table.css">
 </head>
 
 <body>
@@ -24,142 +50,21 @@ $item_two = "Lista de cartas / Registrar carta";
             <?php
                 include("./views/components/header.php");
                 include("./views/components/bar-leyend.php");
-                include("./views/pages/cartas.php");
+                include("./views/pages/form-agregar-carta.php");
             ?>
-                <input type="text" name="" id="">
-    <input type="text" name="" id="">
-    <input type="text" name="" id="">
-    <input type="text" name="" id="">
-    <input type="text" name="" id="">
-</div>
-            <table>
-                <thead></thead>
-                <tbody></tbody>
-                <tfoot></tfoot>
-            </table>
+            <div class="controllers">
+                <button class="button button--save button-modal" id="open-dialog" title="Agregar carta">
+                    <img src="./views/recourses/icons/plus.svg" alt="icono">
+                </button>
+            </div>
+            <?php
+                include("./views/pages/table-cartas.php");
+            ?>
         </div>
     </main>
 </body>
-<script>
-    document.getElementById("btnMore").onclick = function () {
-        funcionparaclonareldivconsuscampos()
-    };
 
-    function funcionparaclonareldivconsuscampos() {
-
-        //contar las clases para el correlativo de agregados dinamicos
-
-        var cantidefilasadd = 0
-        var temporalcant = document.getElementById("contador").value
-
-        var temporalcantnumerico = temporalcant * 1
-        cantidefilasadd = document.getElementsByClassName("contarnuevafila").length;
-
-        var i;
-
-        if (temporalcant > cantidefilasadd) {
-            i = temporalcantnumerico + 1;
-        } else {
-            i = cantidefilasadd + 1
-        }
-        temporalcant = i
-        document.getElementById("contador").value = temporalcant
-
-        // acá clonas el div con todos los campos
-        var divconcamposcopiados = document.getElementById("divquesevaacopiar")
-        divconcamposcopiados = divconcamposcopiados.cloneNode(true);
-
-        console.log(divconcamposcopiados)
-
-        var cadena = document.getElementById("divquesevaacopiar").outerHTML
-        console.log(" cadena " + cadena)
-
-        var elementocreado = document.createElement("div");
-        var elementocreadodos = document.createElement("div");
-
-
-
-        var creamosundivdentrodeldivdondesevaamostrar = '';
-        creamosundivdentrodeldivdondesevaamostrar += '<div id="nuevoscampos' + i +
-            '" class="contarnuevafila" ><br><br> ';
-        creamosundivdentrodeldivdondesevaamostrar += '<button type="button" name="remove" id="' + i +
-            '" class="btn btn-danger btn_remove" onClick="funcioneliminar(this.id)">X</button> ' + cadena;
-        creamosundivdentrodeldivdondesevaamostrar += '</div> ';
-
-
-        elementocreado.innerHTML = creamosundivdentrodeldivdondesevaamostrar
-
-        document.getElementById('divdondeapareceraeldivcopiado').appendChild(elementocreado);
-
-        i++
-
-    }
-
-    function funcioneliminar(elidobtenido) {
-        document.getElementById("nuevoscampos" + elidobtenido).remove();
-    } </script>
-    
-    <script>
-    document.getElementById("btnMore2").onclick = function () {
-        funcionparaclonareldivconsuscampos()
-    };
-
-    function funcionparaclonareldivconsuscampos() {
-
-        //contar las clases para el correlativo de agregados dinamicos
-
-        var cantidefilasadd = 0
-        var temporalcant = document.getElementById("contador").value
-
-        var temporalcantnumerico = temporalcant * 1
-        cantidefilasadd = document.getElementsByClassName("contarnuevafila").length;
-
-        var i;
-
-        if (temporalcant > cantidefilasadd) {
-            i = temporalcantnumerico + 1;
-        } else {
-            i = cantidefilasadd + 1
-        }
-        temporalcant = i
-        document.getElementById("contador").value = temporalcant
-
-        // acá clonas el div con todos los campos
-        var divconcamposcopiados = document.getElementById("divquesevaacopiar")
-        divconcamposcopiados = divconcamposcopiados.cloneNode(true);
-
-        console.log(divconcamposcopiados)
-
-        var cadena = document.getElementById("divquesevaacopiar").outerHTML
-        console.log(" cadena " + cadena)
-
-        var elementocreado = document.createElement("div");
-        var elementocreadodos = document.createElement("div");
-
-
-
-        var creamosundivdentrodeldivdondesevaamostrar = '';
-        creamosundivdentrodeldivdondesevaamostrar += '<div id="nuevoscampos' + i +
-            '" class="contarnuevafila" ><br><br> ';
-        creamosundivdentrodeldivdondesevaamostrar += '<button type="button" name="remove" id="' + i +
-            '" class="btn btn-danger btn_remove" onClick="funcioneliminar(this.id)">X</button> ' + cadena;
-        creamosundivdentrodeldivdondesevaamostrar += '</div> ';
-
-
-        elementocreado.innerHTML = creamosundivdentrodeldivdondesevaamostrar
-
-        document.getElementById('divdondeapareceraeldivcopiado').appendChild(elementocreado);
-
-        i++
-
-    }
-
-    function funcioneliminar(elidobtenido) {
-        document.getElementById("nuevoscampos" + elidobtenido).remove();
-    } </script>
-<script src = "./views/recourses/js/main.js" >
-</script>
 <script src="./views/recourses/js/modal.js"></script>
-
-
+<script defer src="./views/recourses/js/main.js"></script>
+<script defer src="./views/recourses/js/modal.js"></script>
 </html>

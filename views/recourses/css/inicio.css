@@ -61,7 +61,7 @@
 }
 
 .indication-card:first-child{
-    background-color: rgb(255, 156, 56);
+    background-color: rgb(255, 151, 48);
 }
 
 .indication-card:nth-child(2){
@@ -69,7 +69,7 @@
 }
 
 .indication-card:nth-child(3){
-    background: rgb(255, 238, 0);
+    background: rgb(248, 15, 201);
 }
 
 .indication-card:nth-child(4){

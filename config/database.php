@@ -3,8 +3,11 @@
         $host = "localhost";
         $username = "root";
         $passwd = "";
-        $dbname = "pchc";
+        $dbname = "pcrm";
 
-        $conn = mysqli_connect($host, $username, $passwd, $dbname);
-        return $conn;
+        $conn = new mysqli($host, $username, $passwd, $dbname);
+        $conn->query("set names utf8;");
+        if ($conn->connect_error) {
+                die("Error de conexion" .$conn->connect_error);
+        }
 ?>

@@ -1,4 +1,23 @@
 <?php
+include('./config/database.php');
+session_start();
+if (isset($_SESSION['id'])) {
+} else {
+    die(header("location:./index.php"));
+}
+
+$id = $_SESSION['id'];
+$consulta2 = mysqli_query($conn, "SELECT * FROM usuarios WHERE correo_electronico = '$id';");
+$valores = mysqli_fetch_array($consulta2);
+$primer_nombre = $valores['primer_nombre'];
+$primer_apellido = $valores['primer_apellido'];
+$foto_de_perfil=$valores['foto_de_perfil'];
+$tipo_de_usuario = $valores['tipo_de_usuario'];
+
+$boton_1 = "boton_active";
+$boton_2 = "boton_desactivado";
+$boton_3 = "boton_desactivado";
+$boton_4 = "boton_desactivado";
 
 # PAGE
 $page_title = "Inicio";

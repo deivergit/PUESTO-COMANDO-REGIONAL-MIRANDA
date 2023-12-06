@@ -1,27 +1,19 @@
 <?php
-$correo_electronico = $_POST['correo_electronico'];
-$contraseña = $_POST['contraseña'];
 
+include("../config/database.php");
 
-        $host = "localhost";
-        $username = "root";
-        $passwd = "";
-        $dbname = "pchc";
+$correo_electronico = $_POST["correo_electronico"];
+$contraseña = md5($_POST["contraseña"]);
 
-        $conn = mysqli_connect($host, $username, $passwd, $dbname);
+$consulta = mysqli_query($conn, "SELECT * FROM usuarios WHERE correo_electronico = '$correo_electronico' and contraseña = '$contraseña';");
 
-$consulta = "SELECT * FROM usuarios WHERE correo_electronico = '$correo_electronico' and contraseña = '$contraseña' ";
-$resultado = mysqli_query($conn, $consulta);
-
-$filas=mysqli_num_rows($resultado);
-if ($filas > 0) {
+if ($row = mysqli_fetch_array($consulta)) {
+    session_start();
+    $_SESSION['id'] =$row['correo_electronico'];
+    
     header("location:../inicio.php");
 } else {
     header("location:../index.php");
-    echo "<span>Incorrecto</span>";
 }
-
-mysqli_free_result($resultado);
-mysqli_close($conn, $consulta);
 
 ?>

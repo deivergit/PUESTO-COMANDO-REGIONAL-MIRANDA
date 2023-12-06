@@ -1,31 +1,129 @@
-table {
-    table-layout: fixed;
-    width: 95%;
+.table {
+    width: calc(100% - 40px);
     height: auto;
-    margin: 0 auto 0 auto   ;
-    border-collapse: collapse;
-    font-family: var(--main-font-family);
-    border: 2px solid rgb(248, 243, 244);
+    margin: 20px auto 0 auto;
     position: relative;
-    border-radius: 3px;
     background-color: rgb(255, 255, 255);
+    background: rgb(254, 254, 254);
+    border-collapse: collapse;
     overflow: hidden;
-    background: rgb(243,245,248);
-
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    font-family: 'Roboto', sans-serif;
 }
 
-thead {
+.thead__tr {
     width: 100%;
-    height: auto;
-    background: rgb(0, 97, 145);
+    background-color: rgb(42, 49, 64);
     color: rgb(255, 255, 255);
+}
+
+.thead__th {
+    padding: 18px 18px 18px 20px;
+    text-transform: capitalize;
+    text-align: left;
+    font-weight: 500;
+    white-space: nowrap;
+    font-size: 1;
+}
+
+.thead__th:first-child {
+    width: 130px;
+}
+
+.tbody .tbody_td:first-child {
+    padding: 1px 0 1px 0;
+}
+
+.tbody .tbody_tr:nth-child(2n) {
+    background-color: rgb(238, 238, 238);
+}
+
+.tbody .tbody_td {
+    padding: 18px 18px 18px 18px;
     font-size: 0.90em;
 }
 
-tbody tr:nth-child(even) {
-    background: rgb(225, 238, 244);
+.tbody .tbody_tr:hover {
+    background-color: rgb(270, 270, 270);
 }
 
-tbody tr {
+.table caption {
+    display: none;
     text-align: center;
+}
+
+.table img {
+    width: 45px;
+    height: auto;
+    border-radius: 100%;
+    margin: auto;
+}
+
+.pagination {
+    width: calc(100% - 40px);
+    height: auto;
+    margin: 0 auto 20px auto;
+    position: relative;
+    background-color: rgb(171, 21, 21);
+    background: rgb(254, 254, 254);
+    border-collapse: collapse;
+    overflow: hidden;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    font-family: 'Roboto', sans-serif;
+    padding-bottom: 30px;
+    padding: 20px 20px 20px 20px;
+    display: inline-flex;
+}
+
+.ACTIVO {
+    display: flex;
+    background: rgb(12, 169, 144);
+}
+
+.INACTIVO {
+    display: flex;
+    background: rgb(234, 89, 89);
+}
+
+.aviso {
+    display: flex;
+   justify-content: center;
+   padding: 10px 0 10px 0;
+   border-radius: 30px;
+   color: rgb(254, 254, 254);
+}
+
+.page-link {
+    width: 50px;
+    height: 30px;
+    background-color: rgb(255, 75, 4);
+    color: rgb(255, 255, 255);
+    position: relative;
+}
+
+.sr-only {
+    width: 100px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(12, 169, 144);
+    color: rgb(255, 255, 255);
+}
+
+@media screen and (max-width: 930px) {
+    .table thead {
+        display: none;
+    }
+
+    .table td::before{
+        content: attr(data-label);
+    }
+
+    .table caption {
+        display: block;
+        text-align: center;
+    }
 }

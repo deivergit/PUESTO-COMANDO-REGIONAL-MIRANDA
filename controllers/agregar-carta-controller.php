@@ -23,13 +23,11 @@ $municipio = $_POST['municipio'];
 $parroquia = $_POST['parroquia'];
 $direccion = $_POST['direccion'];
 
-#TABLA CASAS DEL BUEN VIVIR
-$casa_del_buen_vivir = $_POST['casa_del_buen_vivir'];
-
 #TABLA CUADRANTES DE PAZ
-$cuadrante_de_paz = $_POST['cuadrante_de_paz'];
 $cuadrante = $_POST['cuadrante'];
-
+$eje = $_POST['eje'];
+$zona = $_POST['zona'];
+$direccion = $_POST['direccion'];
 
 #TABLA CARTAS
 $estatus_de_la_carta = $_POST['estatus_de_la_carta'];
@@ -60,18 +58,13 @@ if ($conn->query($insert)) {
      direcciones_de_habitacion(estado, municipio, parroquia, direccion, id_carta)
      VALUES('$estado', '$municipio', '$parroquia','$direccion', $id_carta)";
 
-     $insert_table_casas_del_buen_vivir = "INSERT INTO 
-     casas_del_buen_vivir(casa_del_buen_vivir, id_carta)
-     VALUES('$casa_del_buen_vivir', $id_carta)";
-
      $insert_table_cuadrantes_de_paz = "INSERT INTO 
-     cuadrantes_de_paz(cuadrante_de_paz, cuadrante, id_carta)
-     VALUES('$cuadrante_de_paz', '$cuadrante', $id_carta)";
+     cuadrantes_de_paz(cuadrante, eje, zona, direccion, id_carta)
+     VALUES('$cuadrante', '$eje','$zona', '$direccion', $id_carta)";
      
      $conn->query($insert_table_documentos_de_identidad);
      $conn->query($insert_table_numeros_de_telefono);
      $conn->query($insert_table_direcciones_de_habitacion);
-     $conn->query($insert_table_casas_del_buen_vivir);
      $conn->query($insert_table_cuadrantes_de_paz);
      
 }

@@ -1,4 +1,4 @@
-let listElements = document.querySelectorAll('.list__button--click');
+const listElements = document.querySelectorAll('.list__button--click');
 
 listElements.forEach(listElement => {
     listElement.addEventListener('click', ()=>{

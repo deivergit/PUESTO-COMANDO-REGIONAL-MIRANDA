@@ -1,55 +1,33 @@
-<?php
-    # GENERAL INFORMATION ABOUT THE WEBSITE
-    $tab_description = 'AGREGAR SOLICITUD';
-    $item_one = 'Solicitudes';
-    $item_two = 'Agregar solicitud';
-    
-    # USER SESSION
-    include './config/database.php';
-    session_start();
-
-    # SERVER TIME
-    date_default_timezone_set("America/Caracas");
-    $DateAndTime = date('d-m-Y h:i:s a', time());  
-?>
-
-<div>
-    <button class="button button--save button-modal" id="abrirModal" title="Agregar usuario">
-        <img src="./views/recourses/icons/plus.svg" alt="icono">
-    </button>
-
-
-
-</div>
-<dialog id="ventanaModal" class="modal">
+<dialog id="dialog" class="modal">
     <form class="form" enctype=multipart/form-data method="POST" action="./controllers/agregar-carta-controller.php">
         <div class="box">
-            <h2>Registrar carta</h2>
-            <img class="icon_cerrar" src="./views/recourses/icons/x.svg">
+            <h1>Registrar carta</h1>
+            <img class="icon_cerrar" src="./views/recourses/icons/x.svg" id="icon-close">
         </div>
+        
         <h2 class="subtitle"><img src="./views/recourses/icons/user-black.svg" alt="" srcset="">Datos personales del
             solicitante</h2>
 
         <div class="box-input box-input--regular">
             <label for="primer_nombre" class="label">Primer nombre</label>
-            <input type=text class="input input--regular" name="primer_nombre" id="primer_nombre" autocomplete="off"
+            <input type="text" class="input input--regular" name="primer_nombre" id="primer_nombre" autocomplete="off"
                 require>
         </div>
 
         <div class="box-input box-input--regular">
             <label for="segundo_nombre" class="label">Segundo nombre</label>
-            <input type=text class="input input--regular" name="segundo_nombre" id="segundo_nombre" autocomplete="off">
+            <input type="text" class="input input--regular" name="segundo_nombre" id="segundo_nombre" autocomplete="off">
         </div>
 
         <div class="box-input box-input--regular">
             <label for="primer_apellido" class="label">Primer apellido</label>
-            <input type=text class="input input--regular" name="primer_apellido" id="primer_apellido"
+            <input type="text" class="input input--regular" name="primer_apellido" id="primer_apellido"
                 autocomplete="off">
         </div>
 
         <div class="box-input box-input--regular">
             <label for="segundo_apellido" class="label">Segundo apellido</label>
-            <input type=text class="input input--regular" name="segundo_apellido" id="segundo_apellido"
+            <input type="text" class="input input--regular" name="segundo_apellido" id="segundo_apellido"
                 autocomplete="off">
         </div>
 
@@ -64,7 +42,7 @@
 
         <div class="box-input box-input--regular">
             <label for="numero_de_documento" class="label">Numero de documento</label>
-            <input type=text name="numero_de_documento" id="numero_de_documento" class="input input--regular"
+            <input type="text" name="numero_de_documento" id="numero_de_documento" class="input input--regular"
                 autocomplete="off">
         </div>
 
@@ -318,43 +296,27 @@
             <label for="sexo" class="label">Sexo</label>
             <select id="sexo" class="input input--regular" name="sexo">
                 <option disabled selected>SELECCIONE</option>
-                <option value="MASCULINO">MASCULINO <img src="/views/recourses/icons/male-sign.svg" alt=""></option>
-                <option value="FEMENINO">FEMENINO <img src="/views/recourses/icons/famale-sign.svg" alt=""></option>
+                <option value="MASCULINO">MASCULINO</option>
+                <option value="FEMENINO">FEMENINO</option>
             </select>
         </div>
-        <input type="text" name="contador" id="contador">
-        <div class="box_phones" id="divquesevaacopiar">
 
-
-            <div class="box-input box-input--regular">
-                <label for="telefono_movil" class="label">Número de Teléfono</label>
-                <input type=text class="input input--regular" name="telefono_movil" autocomplete="off">
-            </div>
-
-            <div class="box-input box-input--regular">
-                <label for="telefono_alternativo" class="label">Tipo de número</label>
-                <select id="tipo_de_numero" class="input input--regular" name="tipo_de_numero">
-                    <option disabled selected>SELECCIONE</option>
-                    <option value="MOVIL">MOVIL</option>
-                    <option value="FIJO">FIJO</option>
-                </select>
-            </div><br><br>
+        <div class="box-input box-input--regular">
+            <label for="telefono_movil" class="label">Número de Teléfono</label>
+            <input type="text" class="input input--regular" name="numero_de_telefono" autocomplete="off">
         </div>
 
-
-
-
-        <div id="divdondeapareceraeldivcopiado">
-
+        <div class="box-input box-input--regular">
+            <label for="telefono_alternativo" class="label">Tipo de número</label>
+            <select id="tipo_de_numero" class="input input--regular" name="tipo_de_numero">
+                <option disabled selected>SELECCIONE</option>
+                <option value="MOVIL">MOVIL</option>
+                <option value="FIJO">FIJO</option>
+            </select>
         </div>
 
-        <br>
-        <hr>
-
-        <button type="button" class="btn btn-success " id="btnMore">
-            +
-        </button>
-
+        <div class="box-input box-input--regular">
+        </div>
 
         <h3 class="subtitle"><img src="./views/recourses/icons/map.svg" alt="">Dirección de habitación</h3>
 
@@ -367,16 +329,12 @@
 
         <div class="box-input box-input--regular">
             <label for="municipio" class="label">Municipio</label>
-            <select class="input input--regular" id="municipio" name="municipio">
-                <option value="selectione" disabled>SELECCIONE</option>
-            </select>
+            <input type="text" class="input input--regular" id="municipio" name="municipio">
         </div>
 
         <div class="box-input box-input--regular">
             <label for="parroquia" class="label">Parroquia</label>
-            <select class="input input--regular" id="parroquia" name="parroquia">
-                <option value="selectione">SELECCIONE</option>
-            </select>
+            <input type="text" class="input input--regular" id="parroquia" name="parroquia">
         </div>
 
         <div class="box-input box-input--big">
@@ -385,40 +343,33 @@
         </div>
 
         <div class="box-input box-input--regular">
-            <label for="casa-del-buen-vivir" class="label">Casa del buen vivir</label>
-            <select class="input input--regular" id="casa-del-buen-vivir" name="casa_del_buen_vivir">
-                <option>SELECCIONE</option>
-                <option value="BARLOVENTO">BARLOVENTO</option>
-                <option value="GUAICAIPURO">GUAICAIPURO</option>
-                <option value="GUARENAS-GUATIRE">GUARENAS-GUATIRE</option>
-                <option value="METROPOLITANO-1">METROPOLITANO-1</option>
-                <option value="METROPOLITANO-2">METROPOLITANO-2</option>
-                <option value="VALLES DEL TUY">VALLES DEL TUY</option>
-            </select>
-        </div>
-
-        <div class="box-input box-input--regular">
             <label for="" class="label">Cuadrante de paz</label>
             <select class="input input--regular">
-                <option></option>
+                <option value="asas">ddfdfdfdf</option>
+                <option value="asas">ddfdfdfdf</option>
             </select>
         </div>
 
         <div class="box-input box-input--regular">
             <label for="" class="label">Zona del cuadrante de paz</label>
-            <input type=text class="input input--regular" name="zona_del_cuadrante_de_paz" />
+            <input type="text" class="input input--regular" name="zona" />
         </div>
 
         <div class="box-input box-input--regular">
             <label for="" class="label">Eje del cuadrante de paz</label>
-            <input type=text class="input input--regular" name="eje_del_cuadrante_de_paz" />
+            <input type="text" class="input input--regular" name="eje" />
+        </div>
+
+        <div class="box-input box-input--regular">
+            <label for="" class="label">Direccion del cuadrante</label>
+            <input type="text" class="input input--regular" name="direccion" />
+        </div>
+
+        <div class="box-input box-input--regular">
         </div>
 
         <h4 class="subtitle"><img src="./views/recourses/icons/list-ol.svg" alt="">Solicitudes de la carta</h4>
-        
-        <a href="#" class="button" id="duplicar2">+</a>
 
-        <div id="duplicar2">
         <div class="box-input box-input--regular" id="box7">
             <label for="categoría" class="label">Categoría</label>
             <select class="input input--regular" name="categoria_1">
@@ -449,8 +400,6 @@
             <label for="" class="label">Cantidad</label>
             <input type="number" class="input input--small" name="cantidad_1">
         </div>
-        </div>
-        
 
         <div class="box-input box-input--big">
             <label class="label">Descripción del caso</label>
@@ -460,8 +409,8 @@
         <h5 class="subtitle">Informacion adicional</h5>
 
         <box class="box-input box-input--regular">
-            <label for="protector responsable" class="label">Estado de la solicitud</label>
-            <select class="input input--regular" name="estado_de_la_solicitud">
+            <label for="protector responsable" class="label">Estatus de la carta</label>
+            <select class="input input--regular" name="estatus_de_la_carta">
                 <option value="POR VERIFICAR">POR VERIFICAR</option>
                 <option value="VERIFICADA">VERIFICADA</option>
                 <option value="DIFERIDA">DIFERIDA</option>
@@ -481,8 +430,8 @@
         </box>
 
         <box class="box-input box-input--regular">
-            <label for="protector responsable" class="label">Fecha y hora de la solicitud</label>
-            <input name="fecha_y_hora_de_la_solicitud" class="input input--regular" value="<?php echo $DateAndTime?>" />
+            <label for="protector responsable" class="label">Fecha y hora de la sistematizacion</label>
+            <input name="fecha_hora_sistematizacion" class="input input--regular" value="<?php echo $DateAndTime?>" />
         </box>
 
         <box class="box-input box-input--regular">
@@ -492,9 +441,8 @@
 
         <box class="box-input box-input--regular">
             <label for="protector responsable" class="label">Protector responsable</label>
-            <select class="input input--regular" name="protector_responsable">
-                <option selectd><?php echo $nombre.$apellido ?></option>
-            </select>
+            <input type="text" class="input input--regular" name="protector_responsable"
+                value="<?php echo $primer_nombre." ".$primer_apellido?>">
         </box>
 
         <box class="box-input box-input--regular">
@@ -502,12 +450,12 @@
             <input type="date" class="input input--regular" name="fecha_atencion_carta">
         </box>
 
-        <input type="file" name="" id="">
+        <h5 class="subtitle">Documentos anexados</h5>
 
         <div class="box-button box-button__center">
             <button class="button button--save"><img src="./views/recourses/icons/save.svg" alt="boton guardar"
                     type="submit"><span>Guardar</span></button>
-            <button class="cerrar button button--cancel" type="reset"><img src="./views/recourses/icons/x-white.svg"
+            <button class="cerrar button button--cancel" type="reset" id="close"><img src="./views/recourses/icons/x-white.svg"
                     alt="boton cancelar"><span>Cerrar</span></button>
         </div>
     </form>
